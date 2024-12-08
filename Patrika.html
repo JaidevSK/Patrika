@@ -1,6 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" style="width:100%; height:100%;">
+<head>
+    <title>Invitation & Venue Map</title>
+    <style>
+        .iframe-container {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .iframe-container.active {
+            display: block;
+        }
+        .button-container {
+            text-align: center;
+            margin: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: orangered;
+            color: aliceblue;
+            border: black;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function showIframe(id) {
+            var iframes = document.getElementsByClassName('iframe-container');
+            for (var i = 0; i < iframes.length; i++) {
+                iframes[i].classList.remove('active');
+            }
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</head>
 <body style="width:100%; height:100%; margin:0;">
-    <iframe src="Gauri_Marriage_Invitation.pdf" style="width:100%; height:100%;" frameborder="0"></iframe>
-</body>  
+    <div class="button-container">
+        <button onclick="showIframe('invitation')">Invitation</button>
+        <button onclick="showIframe('venuemap')">Venue Map</button>
+    </div>
+    <div id="invitation" class="iframe-container active">
+        <iframe src="Gauri_Marriage_Invitation.pdf" style="width:100%; height:100%;" frameborder="0"></iframe>
+    </div>
+    <div id="venuemap" class="iframe-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.3284606678153!2d74.8880664!3d21.351503899999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdf2df70599a19f%3A0x47f736e198f451ab!2sShakuntala%20Lawns%20Shirpur!5e1!3m2!1sen!2sin!4v1733642537606!5m2!1sen!2sin" style="width:100%; height:100%;" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</body>
 </html>
